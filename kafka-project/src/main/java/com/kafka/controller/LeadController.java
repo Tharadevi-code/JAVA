@@ -12,12 +12,12 @@ import com.kafka.service.LeadProducerService;
 @RequestMapping("/lead")
 public class LeadController {
 
-	@Autowired
-	private LeadProducerService producer;
+//	@Autowired
+//	private LeadProducerService producer;
 
 	@PostMapping("/create")
 	public String createLead(@RequestBody Lead lead) {
-		producer.sendLead(lead);
+//		producer.sendLead(lead);
 		return "Lead sent to Kafka with ID: " + lead.getId();
 	}
 }
