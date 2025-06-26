@@ -1,0 +1,19 @@
+package com.kafka.service.impl;
+
+import org.springframework.kafka.annotation.KafkaListener;
+import org.springframework.stereotype.Service;
+
+import com.kafka.model.Lead;
+import com.kafka.service.LeadConsumerService;
+
+@Service
+public class LeadConsumerServiceImpl implements LeadConsumerService {
+
+	@Override
+	@KafkaListener(topics = "lead-topic", groupId = "lead_group",
+	containerFactory = "leadKafkaListenerContainerFactory")
+	public void consumeLead(Lead lead) {
+		System.out.println("📩 Consumed Lead: " + lead);
+	}
+
+}

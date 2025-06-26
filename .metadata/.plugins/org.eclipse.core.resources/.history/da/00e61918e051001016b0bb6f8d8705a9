@@ -1,0 +1,14 @@
+package com.kafka.service.impl;
+
+import com.kafka.model.Lead;
+import com.kafka.service.LeadProducerService;
+
+public class LeadProducerServiceImpl implements LeadProducerService {
+
+	@Override
+	public void sendLead(Lead lead) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

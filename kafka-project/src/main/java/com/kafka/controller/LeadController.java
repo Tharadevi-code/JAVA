@@ -1,0 +1,23 @@
+package com.kafka.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+import com.kafka.model.Lead;
+import com.kafka.service.LeadProducerService;
+
+@RestController
+@RequestMapping("/lead")
+public class LeadController {
+
+	@Autowired
+	private LeadProducerService producer;
+
+	@PostMapping("/create")
+	public String createLead(@RequestBody Lead lead) {
+		producer.sendLead(lead);
+		return "Lead sent to Kafka with ID: " + lead.getId();
+	}
+}
