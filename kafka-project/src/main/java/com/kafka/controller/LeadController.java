@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
 import com.kafka.model.Lead;
 import com.kafka.service.LeadProducerService;
 
@@ -12,12 +13,12 @@ import com.kafka.service.LeadProducerService;
 @RequestMapping("/lead")
 public class LeadController {
 
-//	@Autowired
-//	private LeadProducerService producer;
+	@Autowired
+	private LeadProducerService producer;
 
 	@PostMapping("/create")
 	public String createLead(@RequestBody Lead lead) {
-//		producer.sendLead(lead);
+		producer.sendLead(lead);
 		return "Lead sent to Kafka with ID: " + lead.getId();
 	}
 }
