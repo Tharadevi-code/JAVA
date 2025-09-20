@@ -15,7 +15,7 @@ public class OrderCreatedEvent {
 //	private Integer id;
 	private Integer orderId;
 	private Integer customerId;
-	private BigDecimal amount;
+	private BigDecimal price;
 	private Integer productId;
 	private int quantity;
 }
