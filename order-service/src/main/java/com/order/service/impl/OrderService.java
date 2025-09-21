@@ -36,7 +36,7 @@ public class OrderService {
 	}
 
 	@KafkaListener(topics = { EventTopics.PAYMENT_FAILED, EventTopics.INVENTORY_FAILED,
-			"shipping-failed" }, groupId = "order-service-group")
+			"shipping-failed" }, groupId = "order-group")
 	public void cancelOrder(Integer orderId) {
 		Order order = orderRepository.findById(orderId).orElseThrow();
 		order.setStatus("CANCELLED");

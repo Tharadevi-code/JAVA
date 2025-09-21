@@ -2,10 +2,12 @@ package com.order.controller;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
 import com.order.entity.Order;
 import com.order.service.impl.OrderService;
 
@@ -25,6 +27,13 @@ public class OrderController {
 		log.info("Creating order id {]", order.getProductId());
 		orderService.createorder(order);
 		return ResponseEntity.status(HttpStatus.CREATED).body("Order placed successfully");
+
+	}
+
+	@GetMapping("/test")
+	public ResponseEntity<String> testOrder() {
+		log.info("testing order");
+		return ResponseEntity.status(HttpStatus.CREATED).body("Order TESTED successfully");
 
 	}
 
