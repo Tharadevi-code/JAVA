@@ -1,5 +1,7 @@
 package com.common.events;
 
+import java.math.BigDecimal;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -11,5 +13,5 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class PaymentCompletedEvent {
 	private Integer orderId;
-	private Double amount;
+	private BigDecimal amount;
 }

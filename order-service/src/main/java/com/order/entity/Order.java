@@ -14,7 +14,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-@Table
+@Table(name="orders")
 @Entity
 public class Order {
 	@Id
@@ -26,5 +26,6 @@ public class Order {
 	private Integer addressId;
 	private BigDecimal price;
 	private String paymentMethod;
+	private String status;
 
 }
