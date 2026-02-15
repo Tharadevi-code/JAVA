@@ -25,10 +25,10 @@ public class OrderService {
 		try {
 			Order savedOrder = orderRepository.save(order);
 
-			kafkaTemplate.send(EventTopics.ORDER_CREATED,
-					OrderCreatedEvent.builder().orderId(savedOrder.getId()).customerId(savedOrder.getCustomerId())
-							.productId(savedOrder.getProductId()).price(savedOrder.getPrice())
-							.quantity(savedOrder.getQuantity()).build());
+//			kafkaTemplate.send(EventTopics.ORDER_CREATED,
+//					OrderCreatedEvent.builder().orderId(savedOrder.getId()).customerId(savedOrder.getCustomerId())
+//							.productId(savedOrder.getProductId()).price(savedOrder.getPrice())
+//							.quantity(savedOrder.getQuantity()).build());
 
 		} catch (Exception e) {
 			log.info("Failed to place order {}", e);
